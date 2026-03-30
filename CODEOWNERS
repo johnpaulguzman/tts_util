@@ -1,0 +1,23 @@
+# This is a CODEOWNERS file to define who owns different parts of the repository
+
+# See https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Global owner
+
+- @johnpaulguzman
+
+# Core business logic
+
+src/tts_util/core/ @johnpaulguzman
+
+# Adapters
+
+src/tts_util/adapters/ @johnpaulguzman
+
+# Tests
+
+tests/ @johnpaulguzman
+
+# Configuration
+
+pyproject.toml @johnpaulguzman
