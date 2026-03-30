@@ -1,7 +1,6 @@
 from types import MappingProxyType
 from typing import Final, Mapping
 
-
 TEXT_REPLACEMENTS: Final[Mapping[str, str]] = MappingProxyType(
     {
         "\r": "",  # Normalize line endings

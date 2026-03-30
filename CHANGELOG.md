@@ -40,5 +40,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Automatic text replacements (abbreviations, symbols)
 - Real-time TTS with pyttsx3 backend
 
-[Unreleased]: https://github.com/johnpaulguzman/tts-util/compare/v0.1.0...HEAD
-[0.1.0]: https://github.com/johnpaulguzman/tts-util/releases/tag/v0.1.0
+[Unreleased]: https://github.com/johnpaulguzman/tts_util/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/johnpaulguzman/tts_util/releases/tag/v0.1.0

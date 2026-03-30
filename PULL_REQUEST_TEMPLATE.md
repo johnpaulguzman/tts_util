@@ -21,12 +21,11 @@ Fixes: #(issue number) or N/A
 
 ## Testing
 
-Describe how you tested your changes (hotkey mode and/or GUI mode):
+Describe how you tested your changes:
 
 - [ ] Added new unit tests
 - [ ] Updated existing tests
 - [ ] Tested hotkey mode: (describe)
-- [ ] Tested GUI mode: (describe)
 - [ ] Coverage maintained or improved ✓
 
 ## Checklist

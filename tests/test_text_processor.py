@@ -81,9 +81,7 @@ def test_segmenter_is_constructed_once_and_reused(monkeypatch):
         created.append(segmenter)
         return segmenter
 
-    monkeypatch.setattr(
-        "tts_util.core.text_processor.pysbd.Segmenter", fake_segmenter_ctor
-    )
+    monkeypatch.setattr("tts_util.core.text_processor.pysbd.Segmenter", fake_segmenter_ctor)
 
     processor = TextProcessor()
     assert processor._tokenize_sentences("One.") == ["One."]

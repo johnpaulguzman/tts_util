@@ -9,9 +9,7 @@ class FakeCommandController:
 
     @staticmethod
     def stop():
-        raise AssertionError(
-            "stop should not be called during macro_util composition tests"
-        )
+        raise AssertionError("stop should not be called during macro_util composition tests")
 
     def run(self):
         self.run_calls += 1
@@ -64,9 +62,7 @@ def test_macro_start_cleans_up_speech_on_controller_error(monkeypatch):
     monkeypatch.setattr(macro_util, "TextProcessor", lambda: object())
     monkeypatch.setattr(macro_util, "PynputTextSource", lambda: object())
     monkeypatch.setattr(macro_util, "MultiprocessPyttsx3Speech", lambda: object())
-    monkeypatch.setattr(
-        macro_util, "SpeechController", lambda **kwargs: fake_speech_controller
-    )
+    monkeypatch.setattr(macro_util, "SpeechController", lambda **kwargs: fake_speech_controller)
     monkeypatch.setattr(macro_util, "PynputHotkeyController", controller_factory)
     with pytest.raises(RuntimeError, match="boom"):
         macro_util.start()
@@ -87,9 +83,7 @@ def test_macro_start_runs_command_controller(monkeypatch):
     monkeypatch.setattr(macro_util, "TextProcessor", lambda: object())
     monkeypatch.setattr(macro_util, "PynputTextSource", lambda: object())
     monkeypatch.setattr(macro_util, "MultiprocessPyttsx3Speech", lambda: object())
-    monkeypatch.setattr(
-        macro_util, "SpeechController", lambda **kwargs: fake_speech_controller
-    )
+    monkeypatch.setattr(macro_util, "SpeechController", lambda **kwargs: fake_speech_controller)
     monkeypatch.setattr(macro_util, "PynputHotkeyController", controller_factory)
     macro_util.start()
     assert captured["speech_controls"] is fake_speech_controller
@@ -109,9 +103,7 @@ def test_macro_start_with_gui_uses_tkinter_controller(monkeypatch):
     monkeypatch.setattr(macro_util, "TextProcessor", lambda: object())
     monkeypatch.setattr(macro_util, "PynputTextSource", lambda: object())
     monkeypatch.setattr(macro_util, "MultiprocessPyttsx3Speech", lambda: object())
-    monkeypatch.setattr(
-        macro_util, "SpeechController", lambda **kwargs: fake_speech_controller
-    )
+    monkeypatch.setattr(macro_util, "SpeechController", lambda **kwargs: fake_speech_controller)
     monkeypatch.setattr(macro_util, "TkinterFloatingController", controller_factory)
 
     macro_util.start(use_gui=True)

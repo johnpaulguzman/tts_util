@@ -1,6 +1,6 @@
-# Contributing to tts-util
+# Contributing to tts_util
 
-**Thank you for your interest in contributing to tts-util!** This document provides guidelines for contributors.
+**Thank you for your interest in contributing to tts_util!** This document provides guidelines for contributors.
 
 ## Quick Links
 
@@ -23,8 +23,8 @@
 1. **Fork and Clone**
 
    ```bash
-   git clone https://github.com/johnpaulguzman/tts-util.git
-   cd tts-util
+   git clone https://github.com/johnpaulguzman/tts_util.git
+   cd tts_util
    ```
 
 2. **Create Virtual Environment**
@@ -203,7 +203,7 @@ Fixes #45
 
 ## Accessibility Focus
 
-**tts-util is fundamentally about accessibility.** When contributing:
+**tts_util is fundamentally about accessibility.** When contributing:
 
 ### Accessibility Checklist
 
@@ -218,9 +218,6 @@ Fixes #45
 ```bash
 # Test hotkey mode (keyboard-only)
 ttsu
-
-# Test GUI with keyboard only (Tab, Enter, etc.)
-ttsu --gui
 ```
 
 ### Platform-Specific Accessibility
@@ -256,7 +253,7 @@ See [SECURITY.md](SECURITY.md) for reporting sensitive vulnerabilities.
 ## Project Structure
 
 ```
-tts-util/
+tts_util/
 ├── src/tts_util/
 │   ├── cli.py              # Command-line interface
 │   ├── macro_util.py       # Service composition
@@ -346,4 +343,4 @@ By contributing, you agree your code will be licensed under MIT License.
 
 ---
 
-**Your contributions make tts-util more accessible!** 🙏
+**Your contributions make tts_util more accessible!** 🙏

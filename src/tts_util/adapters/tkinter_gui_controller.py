@@ -53,9 +53,7 @@ class TkinterFloatingController(TriggerControllerPort):
         def wrapped_command():
             # Hide briefly so the previously active app can receive copy hotkeys.
             root.withdraw()
-            root.after(
-                self.FOCUS_RETURN_DELAY_MS, lambda: self._run_and_restore(root, command)
-            )
+            root.after(self.FOCUS_RETURN_DELAY_MS, lambda: self._run_and_restore(root, command))
 
         return wrapped_command
 

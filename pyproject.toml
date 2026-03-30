@@ -3,7 +3,7 @@ requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "tts-util"
+name = "tts_util"
 version = "0.1.0"
 description = "Global hotkey-driven text-to-speech macro utility for accessibility and productivity."
 readme = "README.md"
@@ -51,11 +51,11 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/johnpaulguzman/tts-util"
-Documentation = "https://github.com/johnpaulguzman/tts-util/blob/main/README.md"
-Repository = "https://github.com/johnpaulguzman/tts-util.git"
-Issues = "https://github.com/johnpaulguzman/tts-util/issues"
-Changelog = "https://github.com/johnpaulguzman/tts-util/blob/main/CHANGELOG.md"
+Homepage = "https://github.com/johnpaulguzman/tts_util"
+Documentation = "https://github.com/johnpaulguzman/tts_util/blob/main/README.md"
+Repository = "https://github.com/johnpaulguzman/tts_util.git"
+Issues = "https://github.com/johnpaulguzman/tts_util/issues"
+Changelog = "https://github.com/johnpaulguzman/tts_util/blob/main/CHANGELOG.md"
 
 [project.scripts]
 ttsu = "tts_util.cli:main"
@@ -69,11 +69,10 @@ test = [
 
 [tool.black]
 line-length = 100
-target-version = ["py38", "py39", "py310", "py311", "py312"]
-
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
 [tool.pytest.ini_options]
 addopts = "-q --cov=src/tts_util --cov-report=term-missing --cov-fail-under=90"
 testpaths = ["tests"]

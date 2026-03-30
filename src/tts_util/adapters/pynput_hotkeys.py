@@ -4,7 +4,6 @@ from typing import Callable, Final, Mapping, Sequence
 from pynput import keyboard
 from ..core.ports import SpeechControlPort, TriggerControllerPort
 
-
 logger = logging.getLogger(__name__)
 
 
@@ -78,11 +77,7 @@ class PynputHotkeyController(TriggerControllerPort):
         hotkeys = {}
         logger.info("Registered hotkeys:")
         for hotkey, (command, clear_hotkeys) in hotkey_handlers.items():
-            name = (
-                command.__qualname__
-                if hasattr(command, "__qualname__")
-                else str(command)
-            )
+            name = command.__qualname__ if hasattr(command, "__qualname__") else str(command)
             hotkeys[hotkey] = self._clear_and_call(command, clear_hotkeys)
             logger.info("    %s: %s", hotkey, name)
 

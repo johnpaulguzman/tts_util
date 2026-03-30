@@ -1,4 +1,4 @@
-# Contributing to tts-util
+# Contributing to tts_util
 
 Thank you for your interest in contributing! We welcome bug reports, feature requests, and pull requests.
 
@@ -7,8 +7,8 @@ Thank you for your interest in contributing! We welcome bug reports, feature req
 ### Development Installation
 
 ```bash
-git clone https://github.com/johnpaulguzman/tts-util.git
-cd tts-util
+git clone https://github.com/johnpaulguzman/tts_util.git
+cd tts_util
 pip install -e ".[test]"
 ```
 
@@ -148,7 +148,7 @@ pytest --cov=src/tts_util --cov-report=term-missing
 
 ### Mock Testing
 
-Since tts-util handles system-level input/output (clipboard, hotkeys, audio), use mocks:
+Since tts_util handles system-level input/output (clipboard, hotkeys, audio), use mocks:
 
 ```python
 from unittest.mock import Mock, patch

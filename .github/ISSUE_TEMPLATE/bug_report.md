@@ -21,8 +21,8 @@ A clear and concise description of what the bug is.
 
 - **OS**: Windows / macOS / Linux (specify version)
 - **Python Version**: `python --version` output
-- **tts-util Version**: `pip show tts-util` or branch name
-- **Mode**: Hotkey / GUI
+- **tts_util Version**: `pip show tts_util` or branch name
+- **Mode**: Hotkey
 
 ## Error Output
 

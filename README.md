@@ -1,8 +1,8 @@
-# tts-util
+# tts_util
 
 > A global hotkey-driven text-to-speech macro utility for accessibility and productivity.
 
-tts-util is a lightweight, cross-platform TTS macro service that converts selected text to speech via global hotkeys or a floating GUI controller. It's designed for accessibility, productivity automation, and accessibility features with minimal latency.
+tts_util is a lightweight, cross-platform TTS macro service that converts selected text to speech via global hotkeys. It's designed for accessibility, productivity automation, and accessibility features with minimal latency.
 
 ![Python 3.9+](https://img.shields.io/badge/Python-3.9%2B-blue)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
@@ -12,7 +12,6 @@ tts-util is a lightweight, cross-platform TTS macro service that converts select
 ## Features
 
 - 🎤 **Global Hotkey Control** - Speak selected/copied text from anywhere
-- 🖱️ **GUI Controller** - Floating window with text input and playback controls
 - ⚡ **Fast & Responsive** - Multiprocess architecture for non-blocking speech
 - 🔧 **Flexible Text Processing** - Automatic sentence segmentation and pattern replacement
 - 🌐 **Cross-Platform** - Works on Windows, macOS, and Linux
@@ -31,14 +30,14 @@ tts-util is a lightweight, cross-platform TTS macro service that converts select
 ### Quick Install
 
 ```bash
-pip install git+https://github.com/johnpaulguzman/tts-util.git
+pip install git+https://github.com/johnpaulguzman/tts_util.git
 ```
 
 ### From Source
 
 ```bash
-git clone https://github.com/johnpaulguzman/tts-util.git
-cd tts-util
+git clone https://github.com/johnpaulguzman/tts_util.git
+cd tts_util
 pip install .
 ```
 
@@ -55,14 +54,6 @@ Start the TTS service with global hotkeys:
 
 ```bash
 ttsu
-# or explicitly:
-ttsu up
-```
-
-Start with the floating GUI controller:
-
-```bash
-ttsu --gui
 ```
 
 Set logging level:
@@ -71,29 +62,18 @@ Set logging level:
 ttsu --log-level DEBUG
 ```
 
-## Usage Examples
+## Usage
 
-### Hotkey Mode (Default)
+After running `ttsu`, use these hotkeys from anywhere:
 
-After running `ttsu`, copy or select text anywhere, then:
-
-- **Ctrl+Shift+S** - Speak selected/clipboard text
-- **Ctrl+Shift+P** - Stop speaking
-
-The service captures clipboard content or selected text and reads it aloud.
-
-### GUI Mode
-
-```bash
-ttsu --gui
-```
-
-A floating window appears with:
-
-- **Text Input** - Paste or type text to speak
-- **Speak Button** - Convert text to speech
-- **Stop Button** - Stop ongoing speech
-- **Speed Control** - Adjust playback speed
+- **;+[** - Start speaking selected/clipboard text
+- **;+]** - Stop speaking
+- **;+'** - Speak current sentence
+- **;+.** - Speak next sentence
+- **;+,** - Speak previous sentence
+- **;+p** - Increase speech rate
+- **;+o** - Decrease speech rate
+- **;+q** - Stop service
 
 ### Example Workflows
 
@@ -101,29 +81,13 @@ A floating window appears with:
 
 ```bash
 # Select email text in Gmail
-# Press Ctrl+Shift+S
-# tts-util reads it aloud while you continue working
-```
-
-**Accessibility for Code Review**
-
-```bash
-# Select code snippet from GitHub
-# Press Ctrl+Shift+S
-# Get audio feedback of the code structure
-```
-
-**Document Proofreading**
-
-```bash
-ttsu --gui
-# Paste paragraphs into the GUI
-# Listen for grammar/flow issues
+# Press ;+[
+# tts_util reads it aloud while you continue working
 ```
 
 ## Architecture
 
-tts-util uses a **ports and adapters** pattern:
+tts_util uses a **ports and adapters** pattern:
 
 ```
 ┌──────────────────────────────────────┐
@@ -153,12 +117,11 @@ tts-util uses a **ports and adapters** pattern:
 ## CLI Reference
 
 ```
-ttsu [--log-level LEVEL] [--gui] [up|start]
+ttsu [--log-level LEVEL] [up|start]
 
 Options:
   --log-level {DEBUG,INFO,WARNING,ERROR,CRITICAL}
                         Set logging verbosity (default: INFO)
-  --gui                 Use floating GUI instead of hotkeys
   up, start             Start the service (default command)
 ```
 
@@ -196,14 +159,14 @@ Run specific test file:
 pytest tests/test_speech_controller.py -v
 ```
 
-tts-util maintains 80% code coverage minimum.
+tts_util maintains 80% code coverage minimum.
 
 ## Development
 
 ### Project Structure
 
 ```
-tts-util/
+tts_util/
 ├── src/tts_util/
 │   ├── adapters/          # pynput, pyttsx3, tkinter implementations
 │   ├── core/              # Ports and business logic
@@ -232,7 +195,6 @@ pytest --cov=src/tts_util
 Format code with black (if configured):
 
 ```bash
-pip install black
 black src/tts_util tests
 ```
 
@@ -240,11 +202,11 @@ black src/tts_util tests
 
 ### Hotkeys Not Working
 
-Ensure no other application is capturing Ctrl+Shift+S globally:
+Ensure no other application is capturing the hotkeys globally:
 
 ```bash
 ttsu --log-level DEBUG
-# Check for "Listener stopped" messages
+# Check for "Starting macro service" message
 ```
 
 ### No Audio Output
@@ -253,16 +215,6 @@ Check system volume and TTS engine:
 
 ```bash
 python -c "import pyttsx3; pyttsx3.init().say('test').runAndWait()"
-```
-
-### Permission Denied (GUI Mode)
-
-On some systems, tkinter may need additional permissions:
-
-```bash
-# Linux/macOS: Ensure tkinter is installed
-sudo apt-get install python3-tk  # Ubuntu/Debian
-brew install python-tk            # macOS
 ```
 
 ## Performance
@@ -282,7 +234,7 @@ Contributions welcome! Please:
 
 ## Accessibility
 
-tts-util is designed with accessibility in mind:
+tts_util is designed with accessibility in mind:
 
 - Global hotkey activation (no mouse required)
 - GUI controller for users who prefer graphical interfaces

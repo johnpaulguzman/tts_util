@@ -1,6 +1,6 @@
-# tts-util Examples
+# tts_util Examples
 
-Examples and advanced usage patterns for tts-util.
+Examples and advanced usage patterns for tts_util.
 
 ## Basic Usage
 
@@ -23,16 +23,10 @@ Select text anywhere and press ;+[:
 
 ```
 Selected text: "The quick brown fox jumps over the lazy dog"
-→ tts-util reads it aloud
+→ tts_util reads it aloud
 ```
 
-### Start with GUI
 
-```bash
-ttsu --gui
-```
-
-A floating window appears with text input and buttons.
 
 ### Set Debug Logging
 
@@ -55,18 +49,10 @@ Output:
 # 1. Open Gmail
 # 2. Select email body
 # 3. Press ;+[
-# → tts-util reads email content
+# → tts_util reads email content
 ```
 
-### Proofreading with GUI
 
-```bash
-ttsu --gui
-# 1. Paste paragraph into input box
-# 2. Click "Speak"
-# 3. Listen for grammar/clarity issues
-# 4. Edit and repeat
-```
 
 ### Code Review Workflow
 
@@ -74,13 +60,13 @@ ttsu --gui
 # 1. Open GitHub PR
 # 2. Select code snippet
 # 3. Press ;+[
-# → tts-util reads code structure
+# → tts_util reads code structure
 # Listen for unclear variable names or logic
 ```
 
 ### Accessibility for Documentation
 
-Enable tts-util as system-level TTS for all applications:
+Enable tts_util as system-level TTS for all applications:
 
 ```bash
 # Start in background (Linux/macOS)
@@ -170,7 +156,7 @@ Create a system-wide hotkey that reads clipboard:
 
 ```bash
 # ~/.xbindkeysrc
-"xclip -selection clipboard -o | tts-util-read"
+"xclip -selection clipboard -o | tts_util-read"
     Alt+Shift+t
 ```
 
@@ -206,24 +192,9 @@ pdftotext "$PDF" -
 
 ## Performance Tips
 
-### Faster Startup
 
-```bash
-# Pre-cache Tk window (first run takes ~500ms)
-ttsu --gui &
-sleep 1
-pkill -f "ttsu --gui"
 
-# Subsequent runs are faster
-ttsu --gui
-```
 
-### Reduce Memory Usage
-
-```bash
-# Use hotkey mode instead of GUI
-ttsu  # ~50MB vs ~80MB with GUI
-```
 
 ### Handle Long Documents
 
@@ -244,7 +215,7 @@ For documents longer than 1-2 pages:
 ```bash
 # Check listener status
 ttsu --log-level DEBUG
-# Look for "Listener started" message
+# Look for "Starting macro service" message
 
 # Verify hotkey isn't already bound
 xbindkeys -l  # Linux
@@ -263,23 +234,9 @@ afplay /System/Library/Sounds/Glass.aiff  # macOS
 python -c "import pyttsx3; pyttsx3.init().say('test').runAndWait()"
 ```
 
-### GUI not appearing
 
-```bash
-# Verify tkinter
-python -m tkinter  # Should open small window
 
-# On Linux
-sudo apt-get install python3-tk
-```
 
-### Slow Speech Synthesis
-
-```bash
-# Reduce verbosity - quieter audio = faster
-# Or disable debug logging
-ttsu --log-level WARNING
-```
 
 ## Integration with Other Tools
 
@@ -314,7 +271,7 @@ Use email client's "read aloud" and pipe to system TTS:
 
 ## See Also
 
-- [tts-util README](../README.md)
+- [tts_util README](../README.md)
 - [pyttsx3 Documentation](https://pyttsx3.readthedocs.io/)
 - [pynput Documentation](https://pynput.readthedocs.io/)
 - [pysbd Documentation](https://github.com/nipunsadvilkar/pySBD)

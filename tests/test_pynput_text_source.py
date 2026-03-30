@@ -3,17 +3,13 @@ from tts_util.adapters.pynput_text_source import PynputTextSource
 
 
 def test_copy_hotkey_uses_command_on_macos(monkeypatch):
-    monkeypatch.setattr(
-        PynputTextSource, "platform_getter", staticmethod(lambda: "darwin")
-    )
+    monkeypatch.setattr(PynputTextSource, "platform_getter", staticmethod(lambda: "darwin"))
 
     assert PynputTextSource.copy_hotkey() == "<cmd>+c"
 
 
 def test_copy_hotkey_uses_control_on_windows(monkeypatch):
-    monkeypatch.setattr(
-        PynputTextSource, "platform_getter", staticmethod(lambda: "win32")
-    )
+    monkeypatch.setattr(PynputTextSource, "platform_getter", staticmethod(lambda: "win32"))
 
     assert PynputTextSource.copy_hotkey() == "<ctrl>+c"
 
@@ -34,12 +30,8 @@ def test_retrieve_text_uses_platform_copy_hotkey(monkeypatch):
     source._input_hotkey = calls.append
     source._mouse = type("FakeMouse", (), {"Button": FakeMouseButton})
     source._mouse_controller = FakeMouseController()
-    monkeypatch.setattr(
-        PynputTextSource, "platform_getter", staticmethod(lambda: "darwin")
-    )
-    monkeypatch.setattr(
-        PynputTextSource, "clipboard_getter", staticmethod(lambda: "selected text")
-    )
+    monkeypatch.setattr(PynputTextSource, "platform_getter", staticmethod(lambda: "darwin"))
+    monkeypatch.setattr(PynputTextSource, "clipboard_getter", staticmethod(lambda: "selected text"))
     monkeypatch.setattr(text_source_module.time, "sleep", sleeps.append)
 
     assert source.retrieve_text() == "selected text"
